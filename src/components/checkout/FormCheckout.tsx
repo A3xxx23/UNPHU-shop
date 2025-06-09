@@ -3,7 +3,6 @@ import { type AddressFormValues, addressSchema } from "../../lib/validators"
 import { InputAddress } from "./InputAddress"
 import { useForm } from "react-hook-form"
 import { ItemsCheckout } from "./ItemsCheckout"
-import { formatPrice } from "../../helpers"
 import { useCartStore } from "../../store/cart.store"
 import { useCreateOrder } from "../../hooks"
 import { Loader } from "../shared/Loader"
@@ -36,8 +35,6 @@ export const FormCheckout = () => {
                 cleanCart();
             },
         });
-    
-        console.log(data)
     });    
 
     const cleanCart = useCartStore(state => state.clearCart);
@@ -126,17 +123,13 @@ export const FormCheckout = () => {
             </div>
 
             <div className="flex flex-col ">
-                <div className="flex justify-between items-center text-sm border border-slate-600 bg-stone-100 py-4 rounded-ss-md rounded-se-md
+                <div className="flex justify-between items-center text-sm border bg-stone-100 py-4 rounded-ss-md rounded-se-md
                 px-6">
-                    <span className="text-black">Pay Method </span>
+                    <span className="text-black text-xl font-bold">Pay Method </span>
                 </div>
 
-                <div className="bg-stone-100 text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">
-                    <p>Purchase with cash</p>
-                    <p>Cash money</p>
-                    <p>Promo code: 1245335543</p>
-                    <p>method of payment: Cash</p>
-                    <p>{formatPrice(totalAmount)}</p>
+                <div className="text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">
+                   
 
                 </div>
 
