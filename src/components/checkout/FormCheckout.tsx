@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { AddressFormValues, addressSchema } from "../../lib/validators"
+import { type AddressFormValues, addressSchema } from "../../lib/validators"
 import { InputAddress } from "./InputAddress"
 import { useForm } from "react-hook-form"
 import { ItemsCheckout } from "./ItemsCheckout"
@@ -128,7 +128,7 @@ export const FormCheckout = () => {
             <div className="flex flex-col ">
                 <div className="flex justify-between items-center text-sm border border-slate-600 bg-stone-100 py-4 rounded-ss-md rounded-se-md
                 px-6">
-                    <span className="text-black">Cash money </span>
+                    <span className="text-black">Pay Method </span>
                 </div>
 
                 <div className="bg-stone-100 text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">

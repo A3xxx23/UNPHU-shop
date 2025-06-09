@@ -1,4 +1,3 @@
-import { Brands } from '../components/Home/brand'
 import {Products} from '../components/Home/Products'
 import { Services } from '../components/Home/Services'
 import { ProductGridSkeleton } from '../components/skeleton/ProductGridSkeleton'
@@ -43,7 +42,7 @@ export const HomePage = () => {
                 )
             }
 
-            <Brands/>
+            
   
         </div>
     )
