@@ -6,8 +6,11 @@ import { ItemsCheckout } from "./ItemsCheckout"
 import { useCartStore } from "../../store/cart.store"
 import { useCreateOrder } from "../../hooks"
 import { Loader } from "../shared/Loader"
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 export const FormCheckout = () => {
+    const stripe = useStripe();
+    const elements = useElements();
 
     const {
         register, 
@@ -19,24 +22,69 @@ export const FormCheckout = () => {
 
     //enviando la mutacion de create order
 
-    const onSubmit = handleSubmit(data => {
-        const orderInput = {
-            address: data,
-            cartItems: cartItems.map(item => ({
-                variantId: item.variantId,
-                quantity: item.quantity,
-                price: item.price,
-            })),
-            totalAmount,
-        };
-    
-        createOrder(orderInput, {
-            onSuccess: () => {
-                cleanCart();
-            },
-        });
-    });    
+    const onSubmit = handleSubmit(async (data) => {
+  if (!stripe || !elements) return;
 
+  // Crear PaymentIntent en backend con totalAmount
+  const response = await fetch('/.netlify/functions/create-payment-intent', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ amount: totalAmount * 100 }), // en centavos
+  });
+
+  if (!response.ok) {
+      throw new Error('Failed to create PaymentIntent');
+    }
+
+  const { clientSecret } = await response.json();
+  console.log("Client Secret:", clientSecret);
+
+  // Confirmar el pago con los datos de la tarjeta
+  const cardElement = elements.getElement(CardElement);
+  if (!cardElement) return;
+
+  const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card: cardElement,
+      billing_details: {
+        address: {
+          line1: data.addressLine1,
+          line2: data.addressLine2,
+          city: data.city,
+          state: data.state,
+          postal_code: data.postalCode,
+          country: data.country,
+        },
+      },
+    },
+  });
+
+  if (paymentResult.error) {
+    alert(paymentResult.error.message);
+  } else {
+    if (paymentResult.paymentIntent.status === 'succeeded') {
+      // Guardar la orden en la BD
+      const orderInput = {
+        address: data,
+        cartItems: cartItems.map(item => ({
+          variantId: item.variantId,
+          quantity: item.quantity,
+          price: item.price,
+        })),
+        totalAmount,
+        paymentId: paymentResult.paymentIntent.id,
+        paymentStatus: paymentResult.paymentIntent.status,
+      };
+
+      createOrder(orderInput, {
+        onSuccess: () => {
+          cleanCart();
+        }
+      });
+    }
+  }
+});
+    
     const cleanCart = useCartStore(state => state.clearCart);
     const cartItems = useCartStore(state => state.items);
     const totalAmount = useCartStore(state => state.totalAmount);
@@ -129,8 +177,12 @@ export const FormCheckout = () => {
                 </div>
 
                 <div className="text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">
-                   
-
+                   <div className="mb-4">
+                    <label className="block mb-2 font-medium">Card details</label>
+                    <div className="p-3 border rounded-md">
+                        <CardElement options={{hidePostalCode:true}} />
+                    </div>
+                </div>
                 </div>
 
             </div>

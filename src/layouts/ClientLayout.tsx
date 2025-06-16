@@ -27,8 +27,6 @@ export const ClientLayout = () => {
         await signOut();
     }
 
-
-
     return (
         <div className="flex flex-col gap-5">
             {/* menu */}

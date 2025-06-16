@@ -69,14 +69,14 @@ export const ThankyouPage = () => {
                 <p className="text-sm text-stone-800">Thank you for your order in A&N E-commerce. For payments via transfer we share the following information with you</p>
 
                 <div className="space-y-0.5 text-sm text-stone-950">
-                    <p>Purchase with cash</p>
-                    <p>Cash money</p>
+                    <p>Purchase with Credit Card</p>
                     <p>Promo code: 1245335543</p>
-                    <p>method of payment: Cash</p>
+                    <p>Total amount: {formatPrice(data.totalAmount)}</p>
+                    <p>Client: {data.customer.full_name}</p>
                 </div>
 
                 <p className="text-sm text-stone-800"> 
-                Once the transfer is made, send proof to the email <Link to={'/Contact Us'} className="font-bold"> 
+                if you have any questions about your order, please contact us at <Link to={'/Contact Us'} className="font-bold"> 
                 <strong>angelemilioaquino6@gmail.com</strong></Link>
                 </p>
             </div>
@@ -152,7 +152,7 @@ export const ThankyouPage = () => {
                         </p>
 
                         <p className="text-stone-500 text-sm">
-                        Bank deposit - {formatPrice(data.totalAmount)}
+                        Credit Card - {formatPrice(data.totalAmount)}
                         </p>
                     </div>
 
