@@ -1,4 +1,4 @@
-import { IconBrandLinkedin, IconPackage, IconShoppingCart } from '@tabler/icons-react';
+import { IconBrandLinkedin, IconChartBar, IconMessage, IconNews, IconPackage, IconShoppingCart, IconUser } from '@tabler/icons-react';
 import { IconBrandGithub } from '@tabler/icons-react';
 import { IconPhone } from '@tabler/icons-react';
 import { IconMail } from '@tabler/icons-react';
@@ -54,16 +54,45 @@ export const SocialLinks = [
 ];
 
 export const dashboardLinks = [
-    { 
+    {
         id: 1,
+        title: 'dashboard',
+        href: '#',
+        icon: <IconChartBar size={25} className='text-white'/>
+
+    },
+    { 
+        id: 2,
         title: 'product',
         href: '/dashboard/product',
         icon: <IconPackage size={25} className='text-white'/>
     },
     { 
-        id: 2,
+        id: 3,
         title: 'orders',
         href: '/dashboard/order',
         icon: <IconShoppingCart size={25} className='text-white'/>
     },
+    {
+        id: 4,
+        title: 'customers',
+        href: '#',
+        icon: <IconUser size={25} className='text-white'/>
+
+    },
+    {
+        id: 5,
+        title: 'feedback',
+        href: '#',
+        icon: <IconMessage size={25} className='text-white'/>
+
+
+    },
+    {
+        id: 6,
+        title: 'newsletter',
+        href: '#',
+        icon: <IconNews size={25} className='text-white'/>
+
+    }
 ]
