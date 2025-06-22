@@ -31,6 +31,13 @@ export const ClientLayout = () => {
         <div className="flex flex-col gap-5">
             {/* menu */}
             <nav className="flex justify-center gap-10 text-sm font-medium text-gray-950">
+                <NavLink to='/account/profile' className={({isActive}) => 
+                    `${isActive ? 'underline hover:text-gray-500' : 'hover:underline hover:text-gray-500'}`
+                    }
+                >
+                    Profile
+                </NavLink>
+
                 <NavLink to='/account/orders' className={({isActive}) => 
                     `${isActive ? 'underline hover:text-gray-500' : 'hover:underline hover:text-gray-500'}`
                     }

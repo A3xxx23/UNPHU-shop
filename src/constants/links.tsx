@@ -6,22 +6,22 @@ import { IconMail } from '@tabler/icons-react';
 export const navbarLinks = [
     {
         id: 1,
-        title: 'Home',
+        title: 'Inicio',
         href: '/',
     },
     {
         id: 2,
-        title: 'about',
+        title: 'Sobre Nosotros',
         href: '/about',
     },
     {
         id: 3,
-        title: 'Contact Us',
+        title: 'Contacto',
         href: '/Contact Us',
     },
     {
         id: 4,
-        title: 'Shop All',
+        title: 'Comprar',
         href: '/Shop All',
     },
 ];        
@@ -54,45 +54,40 @@ export const SocialLinks = [
 ];
 
 export const dashboardLinks = [
-    {
-        id: 1,
-        title: 'dashboard',
-        href: '#',
-        icon: <IconChartBar size={25} className='text-white'/>
-
-    },
     { 
-        id: 2,
-        title: 'product',
+        id: 1,
+        title: 'productos',
         href: '/dashboard/product',
         icon: <IconPackage size={25} className='text-white'/>
     },
     { 
-        id: 3,
-        title: 'orders',
+        id: 2,
+        title: 'ordenes',
         href: '/dashboard/order',
         icon: <IconShoppingCart size={25} className='text-white'/>
     },
     {
+        id: 3,
+        title: 'ventas',
+        href: '/dashboard/sales',
+        icon: <IconChartBar size={25} className='text-white'/>
+    },
+    {
         id: 4,
-        title: 'customers',
-        href: '#',
+        title: 'clientes',
+        href: '/dashboard/customers',
         icon: <IconUser size={25} className='text-white'/>
-
     },
     {
         id: 5,
-        title: 'feedback',
-        href: '#',
+        title: 'comentarios',
+        href: '/dashboard/feedback',
         icon: <IconMessage size={25} className='text-white'/>
-
-
     },
     {
         id: 6,
-        title: 'newsletter',
-        href: '#',
+        title: 'noticias',
+        href: '/dashboard/news',
         icon: <IconNews size={25} className='text-white'/>
-
     }
 ]

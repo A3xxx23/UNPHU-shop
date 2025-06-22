@@ -25,8 +25,6 @@ export const Navbar = () => {
 
   const userId = session?.user.id;
   
-
-
   return (
     <div>
       <header className='flex justify-between items-center py-4 px-5 lg:px-12'>

@@ -10,22 +10,22 @@ export const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-                <h4 className="text-lg font-bold uppercase">Company</h4>
-                <Link to="/about" className="hover:text-gray-500">About Us</Link>
-                <Link to="/Contact us" className="hover:text-gray-500">Contact Us</Link>
-                <Link to="/Shop All" className="hover:text-gray-500">Shop All</Link>
+                <h4 className="text-lg font-bold uppercase">Compañía</h4>
+                <Link to="/about" className="hover:text-gray-500">Sobre Nosotros</Link>
+                <Link to="/Contact us" className="hover:text-gray-500">Contacto</Link>
+                <Link to="/Shop All" className="hover:text-gray-500">Comprar</Link>
             </div>
 
             <div className="flex flex-col gap-2">
-                <h4 className="text-lg font-bold uppercase">Support</h4>
-                <Link to="/faq" className="hover:text-gray-300">FAQ</Link>
-                <Link to="/shipping" className="hover:text-gray-500">Shipping</Link>
-                <Link to="/returns" className="hover:text-gray-500">Returns</Link>
+                <h4 className="text-lg font-bold uppercase">Apoyo</h4>
+                <Link to="/faq" className="hover:text-gray-300">Preguntas Frecuentes</Link>
+                <Link to="/shipping" className="hover:text-gray-500">Envio</Link>
+                <Link to="/returns" className="hover:text-gray-500">Devoluciones</Link>
             </div>
 
             <div className="flex flex-col gap-2">
-                <h4 className="text-lg font-bold uppercase">Follow Me</h4>
-                <p className="text-gray-300"> Follow me for more projects</p>
+                <h4 className="text-lg font-bold uppercase">Sígueme</h4>
+                <p className="text-gray-300"> Sígueme para más proyectos</p>
                 <div className="flex gap-2">
                     {SocialLinks.map((link) => (
                         <a 
