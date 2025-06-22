@@ -13,10 +13,11 @@ import { CheckoutPage } from "../pages/CheckoutPage";
 import { ThankyouPage } from "../pages/ThankyouPage";
 import { OrderUserPage } from "../pages/OrderUserPage";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage,    } from "../pages/Index";
+import { DashboardCustomer, DashboardFeedback, DashboardNewProductPage, DashboardNews, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSales, ProfilePage,    } from "../pages/Index";
 import Return from "../pages/Return";
 import Shipping from "../pages/Shipping";
 import Faq from "../pages/Faq";
+import DashboardCustomers from "../pages/dashboard/DashboardCustomers";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
                         element: <OrderUserPage/>,
 
                     },
+                    {
+                        path: 'profile',
+                        element: <ProfilePage/>,
+                    },
                 ],
 
             },
@@ -126,7 +131,28 @@ export const router = createBrowserRouter([
             {
                 path: 'order/:id',
                 element: <DashboardOrderPage/>,
-            }
+            },
+            {
+                path: 'sales',
+                element: <DashboardSales/>,
+
+            },
+            {
+                path: 'customers',
+                element: <DashboardCustomers/>,
+            },
+            {
+                path: 'customers/:id',
+                element: <DashboardCustomer/>,
+            },
+            {
+                path: 'feedback',
+                element: <DashboardFeedback/>,
+            },
+            {
+                path: 'news',
+                element: <DashboardNews/>,
+            },
         ],
     },
     

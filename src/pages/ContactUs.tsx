@@ -35,7 +35,7 @@ export const ContactUs = () => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-    <div className="flex justify-center items-center min-h-screen px-4">
+    <div className="flex justify-center items-center px-4">
       <form
         ref={form}
         onSubmit={sendEmail}

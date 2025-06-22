@@ -11,6 +11,7 @@ export * from './OrderUserPage';
 export * from './Faq';
 export * from './Return';
 export * from './Shipping';
+export * from './ProfilePage';
 
 //admin dashboard
 
@@ -19,3 +20,8 @@ export * from './dashboard/DashboardNewProductPage';
 export * from './dashboard/DashboardProductSlugPage';
 export * from './dashboard/DashboardOrdersPage';
 export * from './dashboard/DahboardOrderPage';
+export * from './dashboard/DashboardSales';
+export * from './dashboard/DashboardCustomers';
+export * from './dashboard/DashboardFeedback';
+export * from './dashboard/DashboardNews';
+export * from './dashboard/DashboardCustomer';
