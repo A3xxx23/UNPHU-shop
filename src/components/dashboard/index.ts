@@ -14,3 +14,6 @@ export * from './product/FeaturesInput'
 export * from './product/VariantsInput'
 export * from './product/UploaderImages'
 export * from './product/Editor'
+
+//customers
+export * from './customers/TableCustomersAdmin';

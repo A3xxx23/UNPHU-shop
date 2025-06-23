@@ -1,4 +1,4 @@
-import { IconBrandLinkedin, IconChartBar, IconMessage, IconNews, IconPackage, IconShoppingCart, IconUser } from '@tabler/icons-react';
+import { IconBrandLinkedin, IconChartBar, IconPackage, IconShoppingCart, IconUser } from '@tabler/icons-react';
 import { IconBrandGithub } from '@tabler/icons-react';
 import { IconPhone } from '@tabler/icons-react';
 import { IconMail } from '@tabler/icons-react';
@@ -74,20 +74,8 @@ export const dashboardLinks = [
     },
     {
         id: 4,
-        title: 'clientes',
+        title: 'usuarios',
         href: '/dashboard/customers',
         icon: <IconUser size={25} className='text-white'/>
     },
-    {
-        id: 5,
-        title: 'comentarios',
-        href: '/dashboard/feedback',
-        icon: <IconMessage size={25} className='text-white'/>
-    },
-    {
-        id: 6,
-        title: 'noticias',
-        href: '/dashboard/news',
-        icon: <IconNews size={25} className='text-white'/>
-    }
 ]

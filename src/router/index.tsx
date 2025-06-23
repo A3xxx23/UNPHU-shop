@@ -13,11 +13,10 @@ import { CheckoutPage } from "../pages/CheckoutPage";
 import { ThankyouPage } from "../pages/ThankyouPage";
 import { OrderUserPage } from "../pages/OrderUserPage";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { DashboardCustomer, DashboardFeedback, DashboardNewProductPage, DashboardNews, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSales, ProfilePage,    } from "../pages/Index";
+import { DashboardCustomer, DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSales, ProfilePage,    } from "../pages/Index";
 import Return from "../pages/Return";
 import Shipping from "../pages/Shipping";
 import Faq from "../pages/Faq";
-import DashboardCustomers from "../pages/dashboard/DashboardCustomers";
 
 export const router = createBrowserRouter([
     {
@@ -139,19 +138,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'customers',
-                element: <DashboardCustomers/>,
+                element: <DashboardCustomer/>,
             },
             {
                 path: 'customers/:id',
                 element: <DashboardCustomer/>,
-            },
-            {
-                path: 'feedback',
-                element: <DashboardFeedback/>,
-            },
-            {
-                path: 'news',
-                element: <DashboardNews/>,
             },
         ],
     },
