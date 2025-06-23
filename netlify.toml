@@ -1,0 +1,6 @@
+[dev]
+  framework = "vite"
+  targetPort = 5173
+  command = "npm run dev"
+  port = 8888
+  functions = "netlify/functions"
