@@ -4,7 +4,7 @@ import { Loader } from '../../components/shared/Loader';
 import { formatDateLong, formatPrice } from '../../helpers';
 import { IconChevronLeft } from '@tabler/icons-react';
 
-const tableHeaders = ['Product', 'Quantity', 'Total'];
+const tableHeaders = ['Producto', 'Cantidad', 'Total'];
 
 export const DashboardOrderPage = () => {
 	const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const DashboardOrderPage = () => {
 					onClick={() => navigate(-1)}
 				>
 					<IconChevronLeft size={16} />
-					Back to Orders
+					Volver a Ordenes
 				</button>
 
 				<div className='flex flex-col items-center gap-1.5'>
@@ -92,16 +92,16 @@ export const DashboardOrderPage = () => {
 				</div>
 
 				<div className='flex flex-col gap-3'>
-					<h2 className='text-lg font-bold'>Address</h2>
+					<h2 className='text-lg font-bold'>Dirección de entrega</h2>
 
 					<div className='border border-stone-300 p-5 flex flex-col gap-5'>
 						<div className='space-y-1'>
-							<h3 className='font-medium'>Client:</h3>
+							<h3 className='font-medium'>Cliente:</h3>
 							<p>{order.customer.full_name}</p>
 						</div>
 
 						<div className='flex flex-col gap-1 text-sm'>
-							<h3 className='font-medium text-base'>Delivery:</h3>
+							<h3 className='font-medium text-base'>Dirección:</h3>
 							<p>{order.address.addressLine1}</p>
 							<p>
                             {order.address.addressLine2 &&

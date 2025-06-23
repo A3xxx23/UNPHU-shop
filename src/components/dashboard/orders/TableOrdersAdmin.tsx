@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { formatDateLong, formatPrice } from '../../../helpers';
-import { OrderWithCustomer } from '../../../interfaces';
+import { type OrderWithCustomer } from '../../../interfaces';
 import { useChangeStatusOrder } from '../../../hooks';
 
-const tableHeaders = ['Client', 'Date', 'Status', 'Total'];
+const tableHeaders = ['Cliente', 'Fecha', 'Estado', 'Total'];
 
 const statusOptions = [
-	{ value: 'Pending', label: 'Pending' },
-	{ value: 'Paid', label: 'Paid' },
-	{ value: 'Shipped', label: 'Shipped' },
-	{ value: 'Delivered', label: 'Delivered' },
+	{ value: 'Pending', label: 'Pendiente' },
+	{ value: 'Paid', label: 'Pagado' },
+	{ value: 'Shipped', label: 'Enviado' },
+	{ value: 'Delivered', label: 'Entregado' },
 ];
 
 interface Props {

@@ -16,7 +16,7 @@ export const DashboardOrdersPage = () => {
 
 	return (
 		<div className='space-y-5'>
-			<h1 className='text-2xl font-bold'>Orders</h1>
+			<h1 className='text-2xl font-bold'>Ordenes</h1>
 
 			<TableOrdersAdmin orders={transformedData} />
 		</div>
