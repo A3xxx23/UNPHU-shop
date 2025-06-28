@@ -13,7 +13,7 @@ import { CheckoutPage } from "../pages/CheckoutPage";
 import { ThankyouPage } from "../pages/ThankyouPage";
 import { OrderUserPage } from "../pages/OrderUserPage";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { DashboardCustomer, DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSales, ProfilePage,    } from "../pages/Index";
+import { DashboardCustomer, DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSalesPage, ProfilePage,    } from "../pages/Index";
 import Return from "../pages/Return";
 import Shipping from "../pages/Shipping";
 import Faq from "../pages/Faq";
@@ -133,7 +133,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'sales',
-                element: <DashboardSales/>,
+                element: <DashboardSalesPage/>,
 
             },
             {

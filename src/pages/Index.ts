@@ -23,3 +23,9 @@ export * from './dashboard/DahboardOrderPage';
 export * from './dashboard/DashboardSales';
 export * from './dashboard/DashboardCustomers';
 export * from './dashboard/DashboardCustomer';
+export * from './dashboard/DashboardOverviewPage';
+export * from './dashboard/DashboardProducts';
+export * from './dashboard/DashboardOrders';
+export * from './dashboard/DashboardSalesDetails';
+export * from './dashboard/DashboardUsers';
+

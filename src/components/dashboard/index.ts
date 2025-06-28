@@ -1,4 +1,6 @@
 export * from './Sidebar';
+export * from './MetricBox'
+export * from './MetricBox'
 
 //ordenes
 export * from './orders/TableOrdersAdmin';
