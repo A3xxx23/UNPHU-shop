@@ -26,3 +26,6 @@ export * from './orders/useOrderAdmin';
 
 ///////customers
 export * from './customers/useCustomers';
+
+////////dashboard
+export * from './dashboard/stats'

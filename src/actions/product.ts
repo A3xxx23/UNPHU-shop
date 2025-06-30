@@ -1,5 +1,5 @@
 import { extractFilePath } from "../helpers";
-import { ProductInput } from "../interfaces";
+import type { ProductInput } from "../interfaces";
 import { supabase } from "../supabase/client"
 
 ////funcion de obtener productos
