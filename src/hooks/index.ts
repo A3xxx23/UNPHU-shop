@@ -29,3 +29,5 @@ export * from './customers/useCustomers';
 
 ////////dashboard
 export * from './dashboard/stats'
+export * from './dashboard/product'
+export * from './dashboard/orders'
