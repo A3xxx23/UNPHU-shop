@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-import { type Customer } from '../../../interfaces';
+import { Customer } from '../../../interfaces';
 import { formatDateLong } from '../../../helpers';
 
 const tableHeaders = ['Nombre', 'Correo', 'Teléfono', 'Fecha de creación'];
@@ -9,7 +8,6 @@ interface Props {
 }
 
 export const TableCustomersAdmin = ({ customers }: Props) => {
-  const navigate = useNavigate();
 
   return (
     <div className='relative w-full h-full'>
@@ -29,7 +27,6 @@ export const TableCustomersAdmin = ({ customers }: Props) => {
             <tr
               key={customer.id}
               className='cursor-pointer hover:bg-gray-200 transition-colors duration-200'
-              onClick={() => navigate(`/dashboard/customer/${customer.id}`)}
             >
               <td className='p-4 font-medium tracking-tighter text-gray-600'>
                 {customer.full_name}
