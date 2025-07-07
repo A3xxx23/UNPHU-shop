@@ -7,9 +7,9 @@ import { Loader } from "../components/shared/Loader";
 import { Logo } from "../components/shared/Logo";
 import { IconCircleDashedCheck } from "@tabler/icons-react";
 import { formatPrice } from "../helpers";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../supabase/client";
-
+import ReactConfetti from 'react-confetti';
 
 export const ThankyouPage = () => {
 
@@ -27,7 +27,7 @@ export const ThankyouPage = () => {
     };
 
     const {isLoading: isLoadingSession} = useUser();
-    
+    const [showConfetti, setShowConfetti] = useState(false);
     const navigate = useNavigate();
 
     //ver si el usuario esta autenticado
@@ -40,12 +40,21 @@ export const ThankyouPage = () => {
             })
     }, [navigate]);
 
+    useEffect(() => {
+        if (data) {
+          setShowConfetti(true);
+          const timer = setTimeout(() => setShowConfetti(false), 5000); // Mostrar el confetti por 5 segundos
+          return () => clearTimeout(timer);
+        }
+    }, [data]);
+
     if(isError) return <div className="text-red-500 text-3xl">Order not found</div>;
 
     if(isLoading || !data || isLoadingSession) return <Loader/>;
      
   return (
     <div className="flex flex-col h-screen">
+        {showConfetti && <ReactConfetti />}
         <header className="text-black flex items-center justify-center flex-col py-12">
             <Link to="/" className="self-center">
                 <Logo/> 

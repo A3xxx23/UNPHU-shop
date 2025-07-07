@@ -13,7 +13,7 @@ import { CheckoutPage } from "../pages/CheckoutPage";
 import { ThankyouPage } from "../pages/ThankyouPage";
 import { OrderUserPage } from "../pages/OrderUserPage";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { DashboardCustomer, DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSalesPage, ProfilePage,    } from "../pages/Index";
+import { DashboardCustomer,DashboardNewProductPage, DashboardOrderPage, DashboardOrdersPage, DashboardProductSlugPage, DashboardProductsPage, DashboardSalesPage,} from "../pages/Index";
 import Return from "../pages/Return";
 import Shipping from "../pages/Shipping";
 import Faq from "../pages/Faq";
@@ -71,10 +71,6 @@ export const router = createBrowserRouter([
                         path: 'orders/:id',
                         element: <OrderUserPage/>,
 
-                    },
-                    {
-                        path: 'profile',
-                        element: <ProfilePage/>,
                     },
                 ],
 
@@ -138,10 +134,6 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'customers',
-                element: <DashboardCustomer/>,
-            },
-            {
-                path: 'customers/:id',
                 element: <DashboardCustomer/>,
             },
         ],
