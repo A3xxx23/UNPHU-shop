@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
 @plugin "@tailwindcss/typography";
+@tailwind utilities;
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif, Poppins;
@@ -15,22 +16,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes slide-in {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes slide-in-left {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-}
-
+/* Animaciones y utilidades personalizadas */
 @layer utilities {
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slide-in {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes slide-in-left {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
   .animation-fade-in {
     animation: fade-in 0.5s ease-in-out;
   }
@@ -46,17 +48,18 @@
   .animation-spin-slow {
     animation: spin 1.5s linear infinite;
   }
+
+  .btn-paginated {
+    @apply border border-slate-700 rounded-md text-xs font-semibold py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-800 disabled:hover:bg-white disabled:hover:text-slate-700;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white py-2 px-3 text-sm font-medium rounded-md;
+  }
+
+  .btn-secondary-outline {
+    @apply border border-slate-400 text-slate-600 py-2 px-3 text-sm font-medium rounded-md;
+  }
 }
 
-.btn-paginated {
-  @apply border border-slate-700 rounded-md text-xs font-semibold py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-800 disabled:hover:bg-white disabled:hover:text-slate-700;
-}
-
-.btn-primary {
-  @apply bg-black text-white py-2 px-3 text-sm font-medium rounded-md
-}
-
-.btn-secondary-outline {
-  @apply border border-slate-400 text-slate-600 py-2 px-3 text-sm font-medium rounded-md
-}
 

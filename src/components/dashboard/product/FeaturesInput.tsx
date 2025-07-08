@@ -37,7 +37,7 @@ export const FeaturesInput = ({control, errors}:Props) => {
     return (
         <div className="flex flex-col gap-2">
             <label className="text-xs font-bold tracking-tight capitalize text-gray-900">
-                Features:
+                Características:
             </label>
 
             <ul className="space-y-3 pl-5">
@@ -71,7 +71,7 @@ export const FeaturesInput = ({control, errors}:Props) => {
 
             <input 
             type="text" 
-            placeholder="Example: 100% cotton"
+            placeholder="Ejemplo: 100% algodon"
             className={`border border-gray-300 py-1.5 text-sm rounded-md px-3 font-medium tracking-tighter text-slate-600
                 outline-none focus:outline-none ${errors.features ? 'border-red-500' : ''} `}
                 autoComplete="off"

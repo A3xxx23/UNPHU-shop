@@ -28,51 +28,42 @@ export const ClientLayout = () => {
     }
 
     return (
-        <div className="flex flex-col gap-5">
-            {/* menu */}
-            <nav className="flex justify-center gap-10 text-sm font-medium text-gray-950">
-                <NavLink to='/account/profile' className={({isActive}) => 
-                    `${isActive ? 'underline hover:text-gray-500' : 'hover:underline hover:text-gray-500'}`
-                    }
-                >
-                    Profile
-                </NavLink>
+      <div className="flex flex-col gap-5">
+        {/* menu */}
+        <nav className="flex justify-center gap-10 text-sm font-medium text-gray-950">
+          <NavLink
+            to="/account/orders"
+            className={({ isActive }) =>
+              `${
+                isActive
+                  ? "underline hover:text-gray-500"
+                  : "hover:underline hover:text-gray-500"
+              }`
+            }
+          >
+            Ordenes
+          </NavLink>
 
-                <NavLink to='/account/orders' className={({isActive}) => 
-                    `${isActive ? 'underline hover:text-gray-500' : 'hover:underline hover:text-gray-500'}`
-                    }
-                >
-                    Orders
-                </NavLink>
+          {/* Dashboard*/}
 
-                {/* Dashboard*/}
+          {role === "admin" && (
+            <NavLink
+              to="/dashboard/product"
+              className="flex items-center gap-1 hover:underline text-gray-950"
+            >
+              Panel de Administración
+              <IconExternalLink size={16} className="inline-block" />
+            </NavLink>
+          )}
 
-                {
-                    role === 'admin' && (
-                        <NavLink to='/dashboard/product' className='flex items-center gap-1 hover:underline text-gray-950'
-                        >
-                            Dashboard
-                            <IconExternalLink 
-                            size={16}
-                            className="inline-block"
-                            />
-                        </NavLink>  
-                    )
-                }
+          <button className="hover:underline " onClick={handleLogout}>
+            Cerrar Sesión
+          </button>
+        </nav>
 
-                <button
-                className="hover:underline "
-                onClick={handleLogout}
-                >
-                    Logout
-                </button>
-            </nav>
-
-            <main className="container mt-12 flex-1">
-                <Outlet/>
-
-            </main>
-        </div>
-
-    )
+        <main className="container mt-12 flex-1">
+          <Outlet />
+        </main>
+      </div>
+    );
 };

@@ -6,12 +6,7 @@ interface Props {
     orders: OrderItemSingle[];
 }
 
-const tableHeaders = [
-    'Order ID',
-    'Date',
-    'Status',
-    'Total',
-]
+const tableHeaders = ["Orden ID", "Fecha", "Estado", "Total"];
 
 export const TableOrders = ({orders}: Props) => {
     const navigate = useNavigate();

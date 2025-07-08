@@ -29,35 +29,34 @@ export const Pagination = ({totalItems, page, setPage}: Props) => {
     const endItems = Math.min(page * itemsPerPage, totalItems);
 
     return (
-        <div className="justify-between items-center flex">
-            <p className="text-sm font-medium text-gray-900">
-            Showing{' '}
-            <span className="font-bold text-gray-900">
-                {startItems} - {endItems}
-            </span> {' '}
-            of <span className="font-bold text-gray-900">{totalItems}</span> products
-            </p>
+      <div className="justify-between items-center flex">
+        <p className="text-sm font-medium text-gray-900">
+          Muestra{" "}
+          <span className="font-bold text-gray-900">
+            {startItems} - {endItems}
+          </span>{" "}
+          de <span className="font-bold text-gray-900">{totalItems}</span>{" "}
+          productos
+        </p>
 
-            <div className=" gap-3 flex">
-                <button
-                className="btn-paginated"
-                onClick={handlePrevPage}
-                disabled={page === 1} //Si estamos en la primera pagina no podemos hacer click
-                >
-                Previous
-                </button>
+        <div className=" gap-3 flex">
+          <button
+            className="btn-paginated"
+            onClick={handlePrevPage}
+            disabled={page === 1} //Si estamos en la primera pagina no podemos hacer click
+          >
+            anterior
+          </button>
 
-                <button
-                className="btn-paginated"
-                onClick={handleNextPage}
-                disabled={isLastPage} //Si estamos en la ultima pagina no podemos hacer click
-                >
-                Next
-                </button>
-
-            </div>
-
+          <button
+            className="btn-paginated"
+            onClick={handleNextPage}
+            disabled={isLastPage} //Si estamos en la ultima pagina no podemos hacer click
+          >
+            próximo
+          </button>
         </div>
-    )
+      </div>
+    );
   
   };

@@ -77,13 +77,17 @@ export const About = () => {
             className="w-full sm:h-[276px] h-fit object-contain rounded-md mb-4"
           />
           <div className="flex-grow">
-            <p className="grid-headtext text-gray-300 font-bold text-lg">Hi, I'm Nicole Tineo</p>
-            <p className="grid-subtext text-gray-300 mt-2 text-md">
-              Stack: HTML, CSS, Javascript, Python, Django, Java, SQL Server, Figma, Photoshop, Bootstrap
+            <p className="grid-headtext text-gray-300 font-bold text-lg">
+              Hola, Soy Nicole Tineo
             </p>
             <p className="grid-subtext text-gray-300 mt-2 text-md">
-              I'm a Systems Engineering student at UNPHU with a passion for graphic design and frontend development. 
-              I enjoy creating visually appealing and user-friendly web experiences.
+              Stack: HTML, CSS, Javascript, Python, Django, Java, SQL Server,
+              Figma, Photoshop, Bootstrap
+            </p>
+            <p className="grid-subtext text-gray-300 mt-2 text-md">
+              Soy estudiante de Ingeniería de Sistemas en la UNPHU y me apasiona
+              el diseño gráfico y el desarrollo frontend. Disfruto creando
+              experiencias web visualmente atractivas y fáciles de usar.
             </p>
           </div>
         </div>
@@ -103,13 +107,17 @@ export const About = () => {
             className="w-full sm:h-[276px] h-fit object-contain rounded-md mb-4"
           />
           <div className="flex-grow">
-            <p className="grid-headtext text-gray-300 font-bold text-lg">Hi, I'm Angel Aquino</p>
-            <p className="grid-subtext text-gray-300 mt-2 text-md">
-              Stack: HTML, CSS, Javascript, Python, Django, Java, React, TailwindCSS, PHP, MySQL, SQL Server, Figma, Bootstrap
+            <p className="grid-headtext text-gray-300 font-bold text-lg">
+              Hola, Soy Angel Aquino
             </p>
             <p className="grid-subtext text-gray-300 mt-2 text-md">
-              I'm a Systems Engineering student at UNPHU with a strong passion for frontend development and UX/UI design.  
-              I enjoy crafting intuitive and visually engaging user experiences.
+              Stack: HTML, CSS, Javascript, Python, Django, Java, React,
+              TailwindCSS, PHP, MySQL, SQL Server, Figma, Bootstrap, Supabase
+            </p>
+            <p className="grid-subtext text-gray-300 mt-2 text-md">
+              Soy estudiante de Ingeniería de Sistemas en la UNPHU y me apasiona
+              el desarrollo frontend y el diseño UX/UI. Disfruto creando
+              experiencias de usuario intuitivas y visualmente atractivas.
             </p>
           </div>
         </div>
@@ -124,16 +132,23 @@ export const About = () => {
       >
         <div className="grid-container bg-black rounded-lg shadow-lg p-2 flex-grow">
           <div className="rounded-3xl w-full sm:h-[250px] h-fit flex justify-center items-center mb-4">
-            <img src="/logoRemove.png" alt="Logo" className="max-w-[150px] max-h-[150px] object-contain" />
+            <img
+              src="/logoRemove.png"
+              alt="Logo"
+              className="max-w-[150px] max-h-[150px] object-contain"
+            />
           </div>
           <div className="mt-6 text-center flex-grow">
             <p className="grid-headtext text-gray-300 text-lg font-semibold leading-relaxed">
-              A&N Ecommerce was born with the vision of creating an online store that is not only functional, 
-              but also visually appealing and easy to use.
+              UNPHU Shop nació con la visión de crear la tienda online oficial
+              de la UNPHU , un espacio donde los estudiantes puedan encontrar
+              productos de calidad y ofrecer una experiencia de compra agradable
+              y segura. 
             </p>
             <p className="grid-subtext text-gray-100 text-lg font-semibold mt-3 mb-1 leading-relaxed">
-              We focus on offering an intuitive, fluid, and modern user experience, combining design and technology 
-              to make every interaction enjoyable and efficient.
+              Nos centramos en ofrecer una experiencia de usuario intuitiva,
+              fluida y moderna, combinando diseño y tecnología para que cada
+              interacción sea agradable y eficiente.
             </p>
           </div>
         </div>
@@ -148,11 +163,13 @@ export const About = () => {
       >
         <div className="grid-container bg-black rounded-lg shadow-lg p-4 flex flex-col items-center">
           <p className="grid-headtext text-gray-300 lg:text-3xl font-bold mb-2 sm:text-2xl pt-1 sm:text-center bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-500 bg-[200%_auto] bg-clip-text leading-tight dark:via-slate-400 dark:to-neutral-400">
-            🚀 Technology Behind A&N Ecommerce
+            🚀 Tecnologías detrás del proyecto
           </p>
           <p className="grid-subtext text-gray-100 lg:text-lg text-center mb-4 sm:text-md pt-1">
-            A&N Ecommerce is built using a modern and scalable technology stack, ensuring a seamless shopping experience. 
-            We leverage powerful tools and frameworks to create a fast, secure, and intuitive platform for our users.
+            A&N Ecommerce se basa en una tecnología moderna y escalable, lo que
+            garantiza una experiencia de compra fluida. Utilizamos herramientas
+            y plataformas potentes para crear una plataforma rápida, segura e
+            intuitiva para nuestros usuarios.
           </p>
           <div className="flex flex-wrap justify-center gap-2 pt-7">
             <motion.img
@@ -221,11 +238,15 @@ export const About = () => {
         transition={{ duration: 1.2 }}
       >
         <div className="grid-container bg-black rounded-lg shadow-lg p-2 flex flex-col items-center">
-          <h2 className="py-2 text-center text-xl font-bold text-gray-300">Follow Nicole and Angel on social media</h2>
+          <h2 className="py-2 text-center text-xl font-bold text-gray-300">
+            Siguenos en nuestras redes
+          </h2>
           <div className="flex flex-col items-center">
-            <h2 className="text-center text-xl font-semibold text-white mb-4 2xl:mb-1">Nicole Tineo</h2>
+            <h2 className="text-center text-xl font-semibold text-white mb-4 2xl:mb-1">
+              Nicole Tineo
+            </h2>
             <div className="flex justify-center gap-2">
-              {socialLinks.map((link) => ( 
+              {socialLinks.map((link) => (
                 <motion.a
                   key={link.id}
                   href={link.href}
@@ -242,7 +263,9 @@ export const About = () => {
           <div className="w-full border-t border-gray-500 my-4"></div>
 
           <div className="flex flex-col items-center">
-            <h2 className="text-center text-xl font-semibold text-white mb-4 2xl:mb-0.5">Angel Aquino</h2>
+            <h2 className="text-center text-xl font-semibold text-white mb-4 2xl:mb-0.5">
+              Angel Aquino
+            </h2>
             <div className="flex justify-center gap-2">
               {SocialLinks.map((link) => (
                 <motion.a

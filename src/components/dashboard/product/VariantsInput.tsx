@@ -11,7 +11,7 @@ interface Props {
 
 }
 
-const headersVariants = ['Stock', 'Price', 'Size', 'Color', ''];
+const headersVariants = ['Stock', 'Precio', 'Size', 'Color', ''];
 
 export const VariantsInput = ({control,errors,register}: Props) => {
 
@@ -76,141 +76,117 @@ export const VariantsInput = ({control,errors,register}: Props) => {
     }, [fields]);
 
     return (
-        <div className='flex flex-col gap-3'>
-            <div className='space-y-4 border-b border-slate-200 pb-6'>
-                <div className='grid grid-cols-5 gap-4 justify-start'>
-                    {
-                        headersVariants.map((header,index) => (
-                            <p
-                            key={index}
-                            className='text-xs font-semibold text-slate-800'
-                            >
-                                {header}
+      <div className="flex flex-col gap-3">
+        <div className="space-y-4 border-b border-slate-200 pb-6">
+          <div className="grid grid-cols-5 gap-4 justify-start">
+            {headersVariants.map((header, index) => (
+              <p key={index} className="text-xs font-semibold text-slate-800">
+                {header}
+              </p>
+            ))}
+          </div>
 
-                            </p>
-                        ))
-                    }
+          {fields.map((field, index) => (
+            <div key={field.id}>
+              <div className="grid grid-cols-5 gap-4 items-center">
+                <input
+                  type="number"
+                  placeholder="Stock"
+                  {...register(`variants.${index}.stock`, {
+                    valueAsNumber: true,
+                  })}
+                  className="border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none"
+                />
 
+                <input
+                  type="number"
+                  step={0.01}
+                  placeholder="Precio"
+                  {...register(`variants.${index}.price`, {
+                    valueAsNumber: true,
+                  })}
+                  className="border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Size: S, M, L"
+                  {...register(`variants.${index}.size`, {})}
+                  className="border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none"
+                />
+
+                <div className="flex relative">
+                  {colorActive[index] && (
+                    <div
+                      className="absolute bg-stone-100 rounded-md bottom-8 left-[40px] p-1
+                                            w-[100px] h-fit space-y-2 "
+                    >
+                      <input
+                        type="color"
+                        {...register(`variants.${index}.color`)}
+                        className="rounded-md px-3 py-1.5 w-full"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Blue"
+                        {...register(`variants.${index}.colorName`)}
+                        className="rounded-md px-3 py-1.5 w-full text-xs focus:outline-none font-semibold placeholder:font-normal"
+                      />
+                    </div>
+                  )}
+
+                  <button
+                    className="border border-slate-300 w-full h-8 cursor-pointer rounded text-xs font-medium flex items-center justify-center"
+                    type="button"
+                    onClick={() => toggleColorActive(index)}
+                  >
+                    {colorValues[index] && colorNameValues[index] ? (
+                      <span
+                        className={`inline-block w-4 h-4 rounded-full bg-block`}
+                        style={{
+                          backgroundColor: colorValues[index],
+                        }}
+                      />
+                    ) : (
+                      "Agregar"
+                    )}
+                  </button>
                 </div>
 
-                {
-                    fields.map((field, index) => (
-                        <div 
-                        key={field.id}
-                        >
-                         <div className='grid grid-cols-5 gap-4 items-center'>
-                                <input 
-                                    type="number" 
-                                    placeholder='Stock' 
-                                    {...register(`variants.${index}.stock`, {
-                                        valueAsNumber: true,
-                                    })}
-                                    className='border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none'
-                                />
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => removeVariant(index)}
+                    className="p-1"
+                  >
+                    <IconCircleDashedX size={20} />
+                  </button>
+                </div>
+              </div>
 
-                                <input 
-                                    type="number" 
-                                    step={0.01}
-                                    placeholder='Price' 
-                                    {...register(`variants.${index}.price`, {
-                                        valueAsNumber: true,
-                                    })}
-                                    className='border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none'
-                                />
-
-                                <input 
-                                    type="text" 
-                                    placeholder='Size: S, M, L' 
-                                    {...register(`variants.${index}.size`, {})}
-                                    className='border border-slate-300 rounded-md px-3 py-1.5 text-xs font-semibold placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-400 appearance-none'
-                                />
-
-
-                                <div className='flex relative'>
-                                    {
-                                        colorActive[index] && (
-                                            <div className='absolute bg-stone-100 rounded-md bottom-8 left-[40px] p-1
-                                            w-[100px] h-fit space-y-2 '>
-                                                <input 
-                                                type="color" 
-                                                {...register(`variants.${index}.color`)} 
-                                                className='rounded-md px-3 py-1.5 w-full'
-                                                />
-                                                <input type="text" placeholder='Blue' {...register(`variants.${index}.colorName`)}
-                                                className='rounded-md px-3 py-1.5 w-full text-xs focus:outline-none font-semibold placeholder:font-normal'
-
-                                                />
-
-
-                                            </div>
-                                        )}
-
-                                        <button
-                                            className='border border-slate-300 w-full h-8 cursor-pointer rounded text-xs font-medium flex items-center justify-center'
-                                            type='button'
-                                            onClick={() => toggleColorActive(index)}
-                                        >
-                                            {
-                                                colorValues[index] && colorNameValues[index] ? (
-                                                    <span className={`inline-block w-4 h-4 rounded-full bg-block`} 
-                                                    style={{
-                                                        backgroundColor: colorValues[index],
-                                                    }}
-                                                    />
-                                                ) : (
-                                                    'Add'
-                                                )
-                                            }
-                                        </button>
-                                </div>
-
-                                <div className='flex justify-end'>
-                                    <button
-                                    type='button'
-                                    onClick={() => removeVariant(index)}
-                                    className='p-1'
-                                    >
-                                        <IconCircleDashedX size={20} />
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                            {
-                                    errors.variants && errors.variants[index] && (
-                                        <p className='text-red-500 text-xs mt-1'>
-                                            {
-                                                getFirstError(errors.variants[index])
-                                            }
-                                        </p>
-                                    )
-                                }
-
-                        </div>
-                    ))
-                }
+              {errors.variants && errors.variants[index] && (
+                <p className="text-red-500 text-xs mt-1">
+                  {getFirstError(errors.variants[index])}
+                </p>
+              )}
             </div>
-
-            <button
-            type='button'
-            onClick={addVariant}
-            className='px-4 py-2 text-slate-800 rounded-md text-sm font-semibold tracking-tight flex items-center gap-1 self-center hover:bg-slate-100'
-            >
-                <IconCirclePlus size={16}/>
-                Add Variant
-
-            </button>
-
-            {
-                fields.length === 0 && errors.variants && (
-                    <p className='text-red-500 text-xs mt-1'>
-                        At least one variant is required
-                    </p>
-                )
-            }
-            
+          ))}
         </div>
+
+        <button
+          type="button"
+          onClick={addVariant}
+          className="px-4 py-2 text-slate-800 rounded-md text-sm font-semibold tracking-tight flex items-center gap-1 self-center hover:bg-slate-100"
+        >
+          <IconCirclePlus size={16} />
+          Agregar variante
+        </button>
+
+        {fields.length === 0 && errors.variants && (
+          <p className="text-red-500 text-xs mt-1">
+            Se requiere al menos una variante
+          </p>
+        )}
+      </div>
     );
 };

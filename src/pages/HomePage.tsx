@@ -23,7 +23,7 @@ export const HomePage = () => {
                     />
                 ) : (
                     <Products
-            title='Recent Products' 
+            title='Productos Recientes' 
             products={preparednewArrivalsProducts}
             />
                 )
@@ -36,7 +36,7 @@ export const HomePage = () => {
                     />
                 ) : (
                     <Products
-            title='Popular Products' 
+            title='Productos populares' 
             products={preparedFeaturesProducts}
             />
                 )

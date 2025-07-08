@@ -14,36 +14,41 @@ export const Sidebar = () => {
 
 
   return (
-    <div className="w-[120px] bg-stone-800 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[250px]">
-      <LogoRemove/>
+    <div className="w-[120px] bg-[#388336] text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[250px]">
+      <LogoRemove />
 
       <nav className="w-full space-y-5 flex-1">
-        {
-          dashboardLinks.map(link => (
-            <NavLink
+        {dashboardLinks.map((link) => (
+          <NavLink
             key={link.id}
             to={link.href}
-            className={({isActive}) => `flex items-center justify-center gap-3 pl-0 py-3 transition-all duration-300 rounded-md ${
-              isActive ? 'text-white bg-stone-700' : 'hover:text-white hover:bg-stone-700'
-            } lg:pl-5 lg:justify-start `}
-            >
-              {link.icon}
-              <p className="font-semibold text-white hidden lg:block">{link.title}</p>
-            </NavLink>
-          ))
-        }
+            className={({ isActive }) =>
+              `flex items-center justify-center gap-3 pl-0 py-3 transition-all duration-300 rounded-md ${
+                isActive
+                  ? "text-white bg-[#2e682d]"
+                  : "hover:text-white hover:bg-[#2e682d]"
+              } lg:pl-5 lg:justify-start `
+            }
+          >
+            {link.icon}
+            <p className="font-semibold text-white hidden lg:block">
+              {link.title}
+            </p>
+          </NavLink>
+        ))}
       </nav>
 
-      <button className="bg-red-500 w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm
-      hover:underline" onClick={async () => {
-        await handleLogout();
-        navigate("/login");
-      }}>
+      <button
+        className="bg-[#2e682d] w-full py-[10px] rounded-md flex items-center justify-center gap-2 font-semibold text-sm
+      hover:underline"
+        onClick={async () => {
+          await handleLogout();
+          navigate("/login");
+        }}
+      >
         <span className="hidden lg:block">Log Out </span>
-          <IconLogout2 size={20} className="inline-block text-white"/> 
+        <IconLogout2 size={20} className="inline-block text-white" />
       </button>
-      
-     
     </div>
   );
 };

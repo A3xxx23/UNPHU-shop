@@ -37,8 +37,6 @@ export const CartItem = ({item}: Props) => {
 
     }
 
-
-
     return (
         <motion.li
           layout
@@ -85,7 +83,7 @@ export const CartItem = ({item}: Props) => {
                 className="underline font-medium text-[10px]"
                 onClick={() => removeItem(item.variantId)}
               >
-                Delete
+                Eliminar
               </button>
             </div>
           </div>

@@ -2,6 +2,6 @@ import { FormProduct } from "../../components/dashboard";
 
 export const DashboardNewProductPage = () => {
   return <div>
-    <FormProduct titleForm="Add Product"/>
+    <FormProduct titleForm="Agregar producto"/>
   </div>;
 };

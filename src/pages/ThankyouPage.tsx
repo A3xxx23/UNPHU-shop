@@ -67,32 +67,32 @@ export const ThankyouPage = () => {
                 <IconCircleDashedCheck size={40} className="text-black" />
 
                 <p className="text-4xl text-black">
-                    Thank you, {data.customer.full_name}!
+                    Gracias, {data.customer.full_name}!
                 </p>
 
             </div>
 
             <div className="w-full border border-slate-200 p-5 rounded-md space-y-3 md:w-[600px]">
-                <h3 className="font-medium text-3xl text-stone-950">Your order has been confirmed </h3>
+                <h3 className="font-medium text-3xl text-stone-950">Su pedido ha sido confirmado </h3>
 
-                <p className="text-sm text-stone-800">Thank you for your order in A&N E-commerce. For payments via transfer we share the following information with you</p>
+                <p className="text-sm text-stone-800">Gracias por su pedido en UNPHU Shop.</p>
 
                 <div className="space-y-0.5 text-sm text-stone-950">
-                    <p>Purchase with Credit Card</p>
-                    <p>Promo code: 1245335543</p>
-                    <p>Total amount: {formatPrice(data.totalAmount)}</p>
-                    <p>Client: {data.customer.full_name}</p>
+                    <p>Compra con tarjeta de crédito</p>
+                    <p>Código promocional: 1245335543</p>
+                    <p>Monto total: {formatPrice(data.totalAmount)}</p>
+                    <p>Cliente: {data.customer.full_name}</p>
                 </div>
 
                 <p className="text-sm text-stone-800"> 
-                if you have any questions about your order, please contact us at <Link to={'/Contact Us'} className="font-bold"> 
+                Si tiene alguna pregunta sobre su pedido, comuníquese con nosotros en <Link to={'/Contact Us'} className="font-bold"> 
                 <strong>angelemilioaquino6@gmail.com</strong></Link>
                 </p>
             </div>
 
             <div className="w-full border border-slate-200 p-5 rounded-md space-y-3 md:w-[600px]">
                 <h3 className="font-semibold text-sm text-stone-950">
-                    Detail for your orders
+                    Detalles de su pedido
                 </h3>
 
                 <div className="flex flex-col gap-5">
@@ -150,24 +150,24 @@ export const ThankyouPage = () => {
                 <div className="grid grid-cols-2 gap-5">
                     <div className="flex flex-col text-sm">
                         <p className="font-semibold text-stone-950">
-                         Contact information:
+                         Información de contacto:
                         </p>
                         <p className="text-stone-500 text-sm">{data.customer.email}</p>
                     </div>
 
                     <div className="flex flex-col text-sm">
                         <p className="font-semibold text-stone-950">
-                            Method of payment:
+                            Forma de pago:
                         </p>
 
                         <p className="text-stone-500 text-sm">
-                        Credit Card - {formatPrice(data.totalAmount)}
+                        Tarjeta de crédito - {formatPrice(data.totalAmount)}
                         </p>
                     </div>
 
                     <div className="flex flex-col text-sm">
-                        <p className="font-semibold text-stone-950">Shipping address</p>
-                        <p>{data.address.addressLine1}</p>
+                        <p className="font-semibold text-stone-950">Dirección de envío</p>
+                        <p className="text-stone-500 text-sm">{data.address.addressLine1}</p>
 
                         <p className="text-stone-500 text-sm"> {data.address.addressLine2 &&  data.address.addressLine2}</p>
                         <p className="text-stone-500 text-sm">{data.address.city}</p>
@@ -176,22 +176,22 @@ export const ThankyouPage = () => {
                     </div>
 
                     <div className="flex flex-col text-sm">
-                        <p className="font-semibold text-stone-950">Method of delivery</p>
-                        <p className="text-stone-500 text-sm">Standard</p>
+                        <p className="font-semibold text-stone-950">Método de entrega</p>
+                        <p className="text-stone-500 text-sm">Estandar</p>
                     </div>
                 </div>
             </div>
 
             <div className="flex flex-col justify-between items-center w-full mb-5 gap-3 sm:flex-row md:w-[600px] md:gap-0">
                 <p className="text-sm text-stone-950">
-                Need help? <Link to='/Contact Us' className="text-stone-950 underline hover:text-stone-500">Contact us</Link>
+                ¿Necesitas ayuda? <Link to='/Contact Us' className="text-stone-950 underline hover:text-stone-500">Contactanos</Link>
                 </p>
 
                 <Link
                 to='/Shop All'
                 className="text-white bg-black py-4 text-sm rounded-md px-5 tracking-tight font-semibold"
                 >
-                    Go shopping
+                Volver a la tienda
                 </Link>
 
             </div>

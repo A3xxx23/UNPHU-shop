@@ -103,103 +103,110 @@ export const FormProduct = ({ titleForm }: Props) => {
     if (isPending || isUpdatePending || isLoading) return <Loader />;
 
     return (
-        <div className='flex flex-col gap-6 relative'>
-            <div className='flex justify-between items-center'>
-                <div className='flex items-center gap-3'>
-                    <button
-                        className='bg-white p-1.5 rounded-md shadow-sm border border-slate-200 transition-all 
-                        group-hover:scale-105'
-                        onClick={() => navigate(-1)}
-                    >
-                        <IconArrowBack size={18} className='text-gray-950 transition-all group-hover:scale-125' />
-                    </button>
+      <div className="flex flex-col gap-6 relative">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <button
+              className="bg-white p-1.5 rounded-md shadow-sm border border-slate-200 transition-all 
+                        group-hover:scale-105"
+              onClick={() => navigate(-1)}
+            >
+              <IconArrowBack
+                size={18}
+                className="text-gray-950 transition-all group-hover:scale-125"
+              />
+            </button>
 
-                    <h2 className='font-bold tracking-tight capitalize text-gray-950'>
-                        {titleForm}
-                    </h2>
-                </div>
-            </div>
-
-            <form className='grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-max flex-1' onSubmit={onSubmit}>
-                <SectionFormProducts
-                    titleSection='Products details'
-                    className='lg:col-span-2 lg:rows-span-2'
-                >
-                    <InputForm
-                        type='text'
-                        placeholder='Example: T-shirt Nike'
-                        label='Name'
-                        name='name'
-                        register={register}
-                        errors={errors}
-                        required
-                    />
-                    <FeaturesInput control={control} errors={errors} />
-                </SectionFormProducts>
-
-                <SectionFormProducts>
-                    <InputForm
-                        type='text'
-                        label='Slug'
-                        placeholder='t-shirt-nike'
-                        name='slug'
-                        register={register}
-                        errors={errors}
-                    />
-
-                    <InputForm
-                        type='text'
-                        label='Brand'
-                        placeholder='Nike'
-                        name='brand'
-                        register={register}
-                        errors={errors}
-                        required
-                    />
-                </SectionFormProducts>
-
-                <SectionFormProducts
-                    titleSection='Product Variants'
-                    className='lg:col-span-2 h-fit'
-                >
-                    <VariantsInput
-                        control={control}
-                        errors={errors}
-                        register={register}
-                    />
-                </SectionFormProducts>
-
-                <SectionFormProducts
-                    titleSection='Product Images'
-                >
-                    <UploaderImages
-                        errors={errors}
-                        setValue={setValue}
-                        watch={watch}
-                    />
-                </SectionFormProducts>
-
-                <SectionFormProducts
-                    titleSection='Product Description'
-                    className='col-span-full'
-                >
-                    <Editor
-                        setValue={setValue}
-                        errors={errors}
-                        initialContent={product?.description as JSONContent}
-                    />
-                </SectionFormProducts>
-
-                <div className='flex gap-3 absolute top-0 right-0 '>
-                    <button className='btn-secondary-outline' type='button' onClick={() => navigate(-1)}>
-                        Cancel
-                    </button>
-
-                    <button className='btn-primary' type='submit'>
-                        Save product
-                    </button>
-                </div>
-            </form>
+            <h2 className="font-bold tracking-tight capitalize text-gray-950">
+              {titleForm}
+            </h2>
+          </div>
         </div>
+
+        <form
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-max flex-1"
+          onSubmit={onSubmit}
+        >
+          <SectionFormProducts
+            titleSection="Detalles del producto"
+            className="lg:col-span-2 lg:rows-span-2"
+          >
+            <InputForm
+              type="text"
+              placeholder="Ejemplo: T-shirt Nike"
+              label="Nombre"
+              name="name"
+              register={register}
+              errors={errors}
+              required
+            />
+            <FeaturesInput control={control} errors={errors} />
+          </SectionFormProducts>
+
+          <SectionFormProducts>
+            <InputForm
+              type="text"
+              label="Slug"
+              placeholder="t-shirt-nike"
+              name="slug"
+              register={register}
+              errors={errors}
+            />
+
+            <InputForm
+              type="text"
+              label="Producto"
+              placeholder="nike-max"
+              name="brand"
+              register={register}
+              errors={errors}
+              required
+            />
+          </SectionFormProducts>
+
+          <SectionFormProducts
+            titleSection="Variantes del producto"
+            className="lg:col-span-2 h-fit"
+          >
+            <VariantsInput
+              control={control}
+              errors={errors}
+              register={register}
+            />
+          </SectionFormProducts>
+
+          <SectionFormProducts titleSection="Imagenes del producto">
+            <UploaderImages errors={errors} setValue={setValue} watch={watch} />
+          </SectionFormProducts>
+
+          <SectionFormProducts
+            titleSection="Descripción del producto"
+            className="col-span-full"
+          >
+            <Editor
+              setValue={setValue}
+              errors={errors}
+              initialContent={product?.description as JSONContent}
+            />
+          </SectionFormProducts>
+
+          <div className="flex gap-3 absolute top-0 right-0 ">
+            <button
+              className="btn-secondary-outline"
+              type="button"
+              onClick={() => navigate(-1)}
+            >
+              Cancelar
+            </button>
+
+            <button
+              className="bg-[#2e682d] border border-[#2e682d] text-white hover:bg-[#2e682d] rounded-lg p-2"
+              type="submit"
+            >
+              Guardar Producto
+            </button>
+          </div>
+        </form>
+      </div>
     );
 };

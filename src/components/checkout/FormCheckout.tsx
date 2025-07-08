@@ -101,111 +101,111 @@ export const FormCheckout = () => {
     }
 
     return (
-        <div>
-            <form className="flex flex-col gap-6"
-            onSubmit={onSubmit}
+      <div>
+        <form className="flex flex-col gap-6" onSubmit={onSubmit}>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-lg font-semibold tracking-normal text-slate-950">
+              Direccion de entrega
+            </h3>
+
+            <InputAddress
+              register={register}
+              errors={errors}
+              name="addressLine1"
+              placeholder="Línea de dirección 1"
+              classname="text-black"
+            />
+
+            <InputAddress
+              register={register}
+              errors={errors}
+              name="addressLine2"
+              placeholder="Línea de dirección 2 (opcional)"
+              classname="text-black"
+            />
+
+            <InputAddress
+              register={register}
+              errors={errors}
+              name="state"
+              placeholder="Estado"
+              classname="text-black"
+            />
+
+            <InputAddress
+              register={register}
+              errors={errors}
+              name="postalCode"
+              placeholder="Codigo Postal (optional)"
+              classname="text-black"
+            />
+
+            <InputAddress
+              register={register}
+              errors={errors}
+              name="city"
+              placeholder="Ciudad"
+              classname="text-black"
+            />
+
+            <select
+              className="border border-slate-200 rounded-md p-3"
+              {...register("country")}
             >
-                <div className="flex flex-col gap-3">
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Dominican Republic">Republica Dominicana</option>
+            </select>
+          </div>
 
-                <h3 className="text-lg font-semibold tracking-normal text-slate-950">
-                    Delivery
-                </h3>
+          <div className="flex flex-col gap-3">
+            <p className="text-sm font-medium text-slate-950">
+              Método de envío
+            </p>
 
-                <InputAddress
-                register = {register}
-                errors={errors}
-                name = "addressLine1"
-                placeholder="Address line 1"
-                classname="text-black"
-                />
+            <div className="flex items-center justify-between text-sm border border-slate-600 bg-stone-100 py-4 rounded-md px-6">
+              <span className="font-normal text-slate-600">Estandar</span>
+              <span className="font-semibold text-slate-950">Gratis</span>
+            </div>
+          </div>
 
-                <InputAddress
-                register = {register}
-                errors={errors}
-                name = "addressLine2"
-                placeholder="Address line 2 (optional)"
-                classname="text-black"
-                />
-
-                <InputAddress
-                register = {register}
-                errors={errors}
-                name = "state"
-                placeholder="State"
-                classname="text-black"
-                />
-
-               <InputAddress
-                register = {register}
-                errors={errors}
-                name="postalCode"
-                placeholder="Postal code (optional)"
-                classname="text-black"
-                />  
-
-                <InputAddress
-                register = {register}
-                errors={errors}
-                name="city"
-                placeholder="City"
-                classname="text-black"
-                />
-
-                <select
-                className="border border-slate-200 rounded-md p-3" {...register('country')}>
-                    <option value="USA">USA</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Dominican Republic">Dominican Republic</option>
-                </select>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                <p className="text-sm font-medium text-slate-950">
-                    Shipping method
-                </p>
-
-                <div className="flex items-center justify-between text-sm border border-slate-600 bg-stone-100 py-4 rounded-md px-6">
-                    <span className="font-normal text-slate-600">Standard</span>
-                    <span className="font-semibold text-slate-950">Free</span>
-                </div>
+          <div className="flex flex-col ">
+            <div
+              className="flex justify-between items-center text-sm border bg-stone-100 py-4 rounded-ss-md rounded-se-md
+                px-6"
+            >
+              <span className="text-black text-xl font-bold">
+                Método de pago
+              </span>
             </div>
 
-            <div className="flex flex-col ">
-                <div className="flex justify-between items-center text-sm border bg-stone-100 py-4 rounded-ss-md rounded-se-md
-                px-6">
-                    <span className="text-black text-xl font-bold">Pay Method </span>
+            <div className="text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">
+              <div className="mb-4">
+                <label className="block mb-2 font-medium">
+                  Detalles de la tarjeta
+                </label>
+                <div className="p-3 border rounded-md">
+                  <CardElement options={{ hidePostalCode: true }} />
                 </div>
-
-                <div className="text-[13px] p-5 space-y-0.5 border border-gray-200 rounded-ee-md text-black">
-                   <div className="mb-4">
-                    <label className="block mb-2 font-medium">Card details</label>
-                    <div className="p-3 border rounded-md">
-                        <CardElement options={{hidePostalCode:true}} />
-                    </div>
-                </div>
-                </div>
-
+              </div>
             </div>
+          </div>
 
-            <div className="flex flex-col gap-6">
-                <h3 className="font-semibold text-3xl text-slate-950">
-                    Summary
-                </h3>
+          <div className="flex flex-col gap-6">
+            <h3 className="font-semibold text-3xl text-slate-950">Resumen</h3>
 
-                {/* aqui van la lista de elementos del carrito */}
+            {/* aqui van la lista de elementos del carrito */}
 
-                <ItemsCheckout/>
+            <ItemsCheckout />
+          </div>
 
-            </div>
-
-            <button 
+          <button
             className="bg-black text-white py-3.5 font-bold tracking-wide rounded-md mt-2"
             type="submit"
-            >
-            finalize the purchase
-            </button>
-            </form>
-
-        </div>
-    )
+          >
+            Finalizar compra
+          </button>
+        </form>
+      </div>
+    );
 }

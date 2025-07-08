@@ -41,7 +41,7 @@ export const ContainerFilter = ({
 
     return <div className="p-5 border border-slate-200 rounded-lg h-fit col-span-2 lg:col-span-1">
         <h3 className="text-xl mb-4 font-semibold">
-            Filters
+            Filtros
         </h3>
 
         {/* para separar la parte de los filtros del titulo*/}

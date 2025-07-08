@@ -14,67 +14,63 @@ export const Cart = () => {
 
 
     return (
-        <div className="flex flex-col h-full">
-            <div className="px-5 py-7 flex justify-between items-center border-b border-slate-200">
-                <span className="flex gap-3 items-center font-semibold">
-                    <IconShoppingBag size={25} />
-                </span>{totalItemsInCart} items
+      <div className="flex flex-col h-full">
+        <div className="px-5 py-7 flex justify-between items-center border-b border-slate-200">
+          <span className="flex gap-3 items-center font-semibold">
+            <IconShoppingBag size={25} />
+          </span>
+          {totalItemsInCart} {totalItemsInCart === 1 ? "producto" : "productos"}
+          <button onClick={closeSheet}>
+            <IconX stroke={2} size={25} className="text-black" />
+          </button>
+        </div>
 
-                <button onClick={closeSheet}>
-                <IconX stroke={2} size={25} className='text-black'/>
-                </button>
+        {/* lista de productos en el carrito */}
+
+        {totalItemsInCart > 0 ? (
+          <>
+            <div className="p-7 overflow-auto flex-1">
+              <ul className="space-y-9">
+                {cartItems.map((item: IcartItem) => (
+                  <CartItem item={item} key={item.variantId} />
+                ))}
+              </ul>
             </div>
 
-            {/* lista de productos en el carrito */}
+            {/* botones de accion */}
 
-            {
-                totalItemsInCart > 0 ? (
-                    <>
-               <div className="p-7 overflow-auto flex-1">
-                <ul className="space-y-9">
-                    {cartItems.map((item: IcartItem) => (
-                        <CartItem item = {item} key={item.variantId}/>
-                    ))}
-                </ul>
-
-               </div>
-
-               {/* botones de accion */}
-
-               <div className="mt-4 p-7">
-                <Link
-                to='/checkout'
+            <div className="mt-4 p-7">
+              <Link
+                to="/checkout"
                 className="w-full bg-black text-white py-3.5 rounded-full flex items-center justify-center gap-3"
-                >
-                    <IconShieldLock size={25}  />
-                    Continue shopping
-                </Link>
+              >
+                <IconShieldLock size={25} />
+                Continuar comprando
+              </Link>
 
-                <button className="mt-3 w-full text-black border border-black rounded-full py-3" onClick={clearCart}>
-                    Clean cart
+              <button
+                className="mt-3 w-full text-black border border-black rounded-full py-3"
+                onClick={clearCart}
+              >
+                Limpiar carrito
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full gap-7">
+            <p className="text-sm font-medium tracking-tight text-slate-500">
+              Tu carrito está vacío
+            </p>
 
-                </button>
-
-               </div>
-            
-            </>
-                ): (
-                    <div className="flex flex-col items-center justify-center h-full gap-7">
-                        <p className="text-sm font-medium tracking-tight text-slate-500">
-                            Cart is empty
-                        </p>
-
-                        <Link
-                        to='/shop all'
-                        className="py-4 bg-black text-white rounded-full px-7 text-xs uppercase tracking-widest font-semibold"
-                        onClick={closeSheet}
-                        >
-                        Go shopping
-                        </Link>
-                    </div>
-                )
-            }
-
-        </div>
-    )
+            <Link
+              to="/shop all"
+              className="py-4 bg-black text-white rounded-full px-7 text-xs uppercase tracking-widest font-semibold"
+              onClick={closeSheet}
+            >
+              Ir a tienda
+            </Link>
+          </div>
+        )}
+      </div>
+    );
 }
