@@ -4,11 +4,7 @@ import { Loader } from "../components/shared/Loader";
 import { IconArrowLeftDashed } from "@tabler/icons-react";
 import { formatDateLong, formatPrice } from "../helpers";
 
-const tableHeaders = [
-    'Product',
-    'Quantity',
-    'Total',
-]
+const tableHeaders = ['Product', 'Quantity', 'Total']
 
 export const OrderUserPage = () => {
     
@@ -65,7 +61,7 @@ export const OrderUserPage = () => {
                         >
                             <td className="p-4 font-medium tracking-tighter flex gap-3 items-center">
                                 <img 
-                                src={product.productImage} 
+                                src={product.productImage || 'https://ui.shadcn.com/placeholder.svg'} 
                                 alt={product.productName} 
                                 className="h-20 w-20 object-contain rounded-lg"
                                 />
