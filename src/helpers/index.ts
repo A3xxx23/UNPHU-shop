@@ -59,7 +59,7 @@ export const PreparedProducts = (products: Product[]) =>{
 export const formatDateLong = (date: string): string => {
     const dateObject = new Date(date);
 
-    return dateObject.toLocaleDateString('en-US', {
+    return dateObject.toLocaleDateString('es-ES', {
         year:'numeric',
         month: 'long',
         day: 'numeric',

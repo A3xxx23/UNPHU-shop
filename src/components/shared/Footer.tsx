@@ -11,7 +11,8 @@ export const Footer = () => {
 
             <div className="flex flex-col gap-2">
                 <h4 className="text-lg font-bold uppercase">Compañía</h4>
-                <Link to="/about" className="hover:text-gray-300">Sobre Nosotros</Link>
+                <Link to="/" className="hover:text-gray-300">Inicio</Link>
+                <Link to="/about" className="hover:text-gray-300">Acerca de</Link>
                 <Link to="/Contact us" className="hover:text-gray-300">Contacto</Link>
                 <Link to="/Shop All" className="hover:text-gray-300">Comprar</Link>
             </div>
