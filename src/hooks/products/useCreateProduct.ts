@@ -16,7 +16,7 @@ export const useCreateProduct = () => {
 			navigate('/dashboard/product');
 		},
 		onError: error => {
-			toast.error('Error creating product');
+			toast.error('Error al crear producto');
 			console.log(error);
 		},
 	});

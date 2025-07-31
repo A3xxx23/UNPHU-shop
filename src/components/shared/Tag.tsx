@@ -1,4 +1,4 @@
-type TagType = 'New' | 'Sold Out';
+type TagType = "Nuevo" | "Agotado";
 
 interface Props {
     contentTag: TagType; 
@@ -6,8 +6,8 @@ interface Props {
 
 const getTagColor = (content: TagType) => {
     const lowerContent = content.toLowerCase();
-    if(lowerContent === 'New') return 'bg-slate-800';
-    if(lowerContent === 'Sold out') return 'bg-red-600';
+    if(lowerContent === 'Nuevo') return 'bg-slate-800';
+    if(lowerContent === 'Agotado') return 'bg-red-600';
 
     return 'bg-slate-400';
 }

@@ -16,15 +16,15 @@ export const ContactUs = () => {
         })
         .then(
           () => {
-            toast.success('Email sent successfully!', {
+            toast.success('Correo enviado correctamente!', {
               position: 'bottom-right',
               duration: 3000,
             });
             form.current?.reset();
           },
           (error) => {
-            toast.error('Email not sent. Please try again later.', {
-              position: 'bottom-right',
+            toast.error("Error al enviar correos", {
+              position: "bottom-right",
               duration: 3000,
             });
             console.error('FAILED...', error.text);

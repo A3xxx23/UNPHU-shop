@@ -12,14 +12,14 @@ export const useChangeStatusOrder= () => {
             queryclient.invalidateQueries({
                  queryKey: ['orders', 'admin'],
             });
-            toast.success('Order status updated', {
+            toast.success('Estado de la orden actualizado', {
                 position: 'bottom-right',
                 duration: 2000,
             });
         },
         onError: (error) => {
         console.log(error);
-        toast.error('Something went wrong',{
+        toast.error('Error al actualizar el estado de la orden',{
             position: 'bottom-right',
             duration: 2000,
         });

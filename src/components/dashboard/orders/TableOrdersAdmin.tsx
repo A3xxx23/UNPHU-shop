@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { formatDateLong, formatPrice } from '../../../helpers';
 import { type OrderWithCustomer } from '../../../interfaces';
 import { useChangeStatusOrder } from '../../../hooks';
+import { useReactToPrint } from 'react-to-print';
+import { useRef } from 'react';
+import { IconDownload } from '@tabler/icons-react';
 
 const tableHeaders = ['Cliente', 'Fecha', 'Estado', 'Total'];
 
@@ -18,67 +21,85 @@ interface Props {
 
 export const TableOrdersAdmin = ({ orders }: Props) => {
 	const navigate = useNavigate();
-
 	const { mutate } = useChangeStatusOrder();
+	const printRef = useRef<HTMLDivElement>(null);
 
 	const handleStatusChange = (id: number, status: string) => {
 		mutate({ id, status });
 	};
 
+	const handlePrint = useReactToPrint({
+		contentRef: printRef,
+		documentTitle: `Listado de ordenes - ${formatDateLong(new Date())}`,
+	});
+
 	return (
 		<div className='relative w-full h-full'>
-			<table className='text-sm w-full caption-bottom overflow-auto'>
-				<thead className='border-b border-gray-200 pb-3'>
-					<tr className='text-sm font-bold text-gray-900'>
-						{tableHeaders.map((header, index) => (
-							<th key={index} className='h-12 px-4 text-left'>
-								{header}
-							</th>
-						))}
-					</tr>
-				</thead>
+			<div className='flex justify-end mb-4'>
+				<button
+				onClick={handlePrint}
+				className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-colors mb-4"
+			>
+				<IconDownload size={16} />
+				Descargar PDF
+			</button>
+			</div>
 
-				<tbody className='[&_tr:last-child]:border-0'>
-					{orders.map(order => (
-						<tr
-							key={order.id}
-							className='cursor-pointer hover:bg-gray-200 transition-colors duration-200'
-							onClick={() =>
-								navigate(`/dashboard/order/${order.id}`)
-							}
-						>
-							<td className='p-4 font-medium tracking-tighter flex flex-col gap-1 text-gray-600'>
-								<span className='font-semibold text-gray-600'>
-									{order.customers?.full_name}
-								</span>
-								<span>{order.customers?.email}</span>
-							</td>
-							<td className='p-4 font-medium tracking-tighter text-gray-600'>
-								{formatDateLong(order.created_at)}
-							</td>
-							<td className='p-4 font-medium tracking-tighter text-gray-600'>
-								<select
-									value={order.status}
-									onClick={e => e.stopPropagation()}
-									className='border border-gray-300 p-2 rounded text-gray-600'
-									onChange={e =>
-										handleStatusChange(order.id, e.target.value)
-									}
-								>
-									{statusOptions.map(option => (
-										<option value={option.value} key={option.value}>
-											{option.label}
-										</option>
-									))}
-								</select>
-							</td>
-							<td className='p-4 font-medium tracking-tighter text-gray-600'>
-								{formatPrice(order.total_amount)}
-							</td>
+			{/* Contenido imprimible */}
+			<div ref={printRef}>
+				<table className='text-sm w-full caption-bottom overflow-auto'>
+					<thead className='border-b border-gray-200 pb-3'>
+						<tr className='text-sm font-bold text-gray-900'>
+							{tableHeaders.map((header, index) => (
+								<th key={index} className='h-12 px-4 text-left'>
+									{header}
+								</th>
+							))}
 						</tr>
-					))}
-				</tbody>
-			</table>
+					</thead>
+
+					<tbody className='[&_tr:last-child]:border-0'>
+						{orders.map(order => (
+							<tr
+								key={order.id}
+								className='cursor-pointer hover:bg-gray-200 transition-colors duration-200'
+								onClick={() =>
+									navigate(`/dashboard/order/${order.id}`)
+								}
+							>
+								<td className='p-4 font-medium tracking-tighter flex flex-col gap-1 text-gray-600'>
+									<span className='font-semibold text-gray-600'>
+										{order.customers?.full_name}
+									</span>
+									<span>{order.customers?.email}</span>
+								</td>
+								<td className='p-4 font-medium tracking-tighter text-gray-600'>
+									{formatDateLong(order.created_at)}
+								</td>
+								<td className='p-4 font-medium tracking-tighter text-gray-600'>
+									<select
+										value={order.status}
+										onClick={e => e.stopPropagation()}
+										className='border border-gray-300 p-2 rounded text-gray-600'
+										onChange={e =>
+											handleStatusChange(order.id, e.target.value)
+										}
+									>
+										{statusOptions.map(option => (
+											<option value={option.value} key={option.value}>
+												{option.label}
+											</option>
+										))}
+									</select>
+								</td>
+								<td className='p-4 font-medium tracking-tighter text-gray-600'>
+									{formatPrice(order.total_amount)}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 };

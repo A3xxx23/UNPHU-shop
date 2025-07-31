@@ -93,11 +93,15 @@ export const FormCheckout = () => {
     const {mutate: createOrder, isPending} = useCreateOrder();
 
     if (isPending) {
-        return <div className="flex flex-col gap-3 h-screen items-center justify-center">
-            <Loader/>
+        return (
+          <div className="flex flex-col gap-3 h-screen items-center justify-center">
+            <Loader />
 
-            <p className="text-sm font-medium text-stone-500">We are processing your order</p>
-        </div>
+            <p className="text-sm font-medium text-stone-500">
+              Estamos preparando tu pedido.
+            </p>
+          </div>
+        );
     }
 
     return (

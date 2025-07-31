@@ -1,32 +1,10 @@
-import {
-  useOrdersByMonth,
-  useOrdersByStatus,
-  useTopProducts,
-  useTotalCustomers,
-  useTotalOrders,
-  useTotalSales,
-  useUsersByMonth
-} from "../../hooks/dashboard/stats";
-
+import {useOrdersByMonth,useOrdersByStatus,useTopProducts,useTotalCustomers,useTotalOrders,useTotalSales,useUsersByMonth} from "../../hooks/dashboard/stats";
 import { Bar, Line, Pie } from "react-chartjs-2";
-import {
-  Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement,
-  LineElement, ArcElement, Tooltip, Legend
-} from "chart.js";
-
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement,LineElement, ArcElement, Tooltip, Legend} from "chart.js";
 import { MetricBox } from "../../components/dashboard/MetricBox";
 import { IconCash, IconShoppingCart, IconUser } from "@tabler/icons-react";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale,LinearScale,BarElement,PointElement,LineElement,ArcElement,Tooltip,Legend);
 
 export const DashboardOverviewPage = () => {
   const { data: sales } = useTotalSales();

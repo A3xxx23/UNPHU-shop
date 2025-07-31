@@ -48,7 +48,7 @@ export const ThankyouPage = () => {
         }
     }, [data]);
 
-    if(isError) return <div className="text-red-500 text-3xl">Order not found</div>;
+    if(isError) return <div className="text-red-500 text-3xl">Orden no encontrada</div>;
 
     if(isLoading || !data || isLoadingSession) return <Loader/>;
      

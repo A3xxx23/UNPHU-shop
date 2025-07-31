@@ -15,14 +15,14 @@ export const useUpdateProduct = (productId: string) => {
 			queryClient.invalidateQueries({
 				queryKey: ['products'],
 			});
-			toast.success('Product updated successfully', {
+			toast.success('Producto actualizado correctamente', {
 				position: 'bottom-right',
 			});
 			navigate('/dashboard/product');
 		},
 		onError: error => {
 			console.log(error);
-			toast.error('Error updating product', {
+			toast.error('Error al actualizar producto', {
 				position: 'bottom-right',
 			});
 		},
