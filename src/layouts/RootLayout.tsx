@@ -6,6 +6,7 @@ import { Hero } from '../components/Home/Hero';
 import { Sheet } from '../components/shared/Sheet';
 import { useGlobalStore } from '../store/global.store';
 import { NavbarMobile } from '../components/shared/NavbarMobile';
+import { ChatbotContainer } from '../components/chatbot/ChatBotContainer';
 
 
 export const RootLayout = () => {
@@ -28,7 +29,7 @@ export const RootLayout = () => {
 
       {activeNavMobile && <NavbarMobile/>}
 
-
+      <ChatbotContainer />
       <Footer/>
     </div>
   );

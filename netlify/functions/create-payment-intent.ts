@@ -29,7 +29,7 @@ const handler: Handler = async (event) => {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: (err as any).message }),
+      body: JSON.stringify({ error: (err as Error).message }),
     };
   }
 };
