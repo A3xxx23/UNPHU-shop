@@ -1,4 +1,4 @@
-import { Handler } from '@netlify/functions';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -6,17 +6,13 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_API_KEY!
 );
 
-export const handler: Handler = async (event) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
-    const { message } = JSON.parse(event.body || '{}');
+    const { message } = req.body || {};
     if (!message) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'No message provided' }),
-      };
+      return res.status(400).json({ error: 'No message provided' });
     }
 
-    // Consulta productos solo si el mensaje menciona productos
     let productSummary = '';
     if (message.toLowerCase().includes('producto')) {
       const { data: products, error } = await supabase
@@ -33,30 +29,28 @@ export const handler: Handler = async (event) => {
       }
     }
 
-    // Construye mensajes para la API de Groq, incluyendo info productos si hay
     const messages = [
-  { role: 'system', content: 'Eres un asistente amable y útil.' },
-];
+      { role: 'system', content: 'Eres un asistente amable y útil.' },
+    ];
 
-if (productSummary) {
-  messages.push({
-    role: 'system',
-    content: `Estos son algunos productos disponibles:\n${productSummary}`,
-  });
-  messages.push({
-    role: 'system',
-    content: 'Responde tomando en cuenta esta información.',
-  });
-}
+    if (productSummary) {
+      messages.push({
+        role: 'system',
+        content: `Estos son algunos productos disponibles:\n${productSummary}`,
+      });
+      messages.push({
+        role: 'system',
+        content: 'Responde tomando en cuenta esta información.',
+      });
+    }
 
-messages.push({ role: 'user', content: message });
-
+    messages.push({ role: 'user', content: message });
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`, 
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "llama-3.3-70b-versatile",
@@ -70,18 +64,11 @@ messages.push({ role: 'user', content: message });
     }
 
     const data = await response.json();
-
     const reply = data.choices?.[0]?.message?.content || "No se pudo generar una respuesta.";
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ reply }),
-    };
+    return res.status(200).json({ reply });
   } catch (error) {
     console.error('Error en openai-chat:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message || 'Error desconocido' }),
-    };
+    return res.status(500).json({ error: error.message || 'Error desconocido' });
   }
-};
+}
