@@ -23,11 +23,11 @@ export const ContactUs = () => {
             form.current?.reset();
           },
           (error) => {
-            toast.error("Error al enviar correos", {
+            toast.error(`${error.message}`,  {
               position: "bottom-right",
               duration: 3000,
             });
-            console.error('FAILED...', error.text);
+
           }
         );
     }
@@ -57,7 +57,7 @@ export const ContactUs = () => {
               type="text"
               name="user_name"
               required
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
@@ -69,7 +69,7 @@ export const ContactUs = () => {
               type="email"
               name="user_email"
               required
-              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
@@ -81,7 +81,7 @@ export const ContactUs = () => {
               type="text"
               name="subject"
               required
-              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 
@@ -93,7 +93,7 @@ export const ContactUs = () => {
               name="message"
               rows={4}
               required
-              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg shadow-sm text-black resize-none focus:outline-none focus:ring-2 focus:ring-stone-400"
+              className="mt-1 w-full px-4 py-2 border border-gray-300  rounded-lg shadow-sm text-black resize-none focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
           </div>
 

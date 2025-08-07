@@ -2,7 +2,7 @@ import { IconCreditCardPay, IconReceiptRefund, IconTruck, IconWorld } from '@tab
 
 export const Services = () => {
     return (
-      <div className="grid grid-cols-2 gap-8 mt-6 mb-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 ">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 ">
         <div className="flex items-center gap-4 ">
           <IconTruck className="text-[#439441] w-10 h-10 min-w-[40px] min-h-[40px]" />
 

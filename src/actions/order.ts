@@ -1,4 +1,4 @@
-import { OrderInput } from '../interfaces';
+import type { OrderInput } from '../interfaces';
 import { supabase } from '../supabase/client';
 
 export const createOrder = async (order: OrderInput) => {

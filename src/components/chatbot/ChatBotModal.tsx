@@ -16,14 +16,16 @@ type Product = {
   images: string[];
 };
 
-// Función para extraer productos y sus imágenes del texto del bot
+const imageRegex =
+  /https?:\/\/[^\s),]+?\.(?:jpg|jpeg|png|webp|gif|bmp|svg|tiff)(?:\.(?:jpg|jpeg|png|webp|gif|bmp|svg|tiff))*\b/gi;
+
 function extractProducts(text: string): Product[] {
   const products: Product[] = [];
-  const lines = text.split('\n');
+  const lines = text.split("\n");
 
   let currentProduct: Product | null = null;
 
-  lines.forEach(line => {
+  lines.forEach((line) => {
     const productMatch = line.match(/^\d+\.\s\*\*(.+?)\*\*/);
     if (productMatch) {
       if (currentProduct) products.push(currentProduct);
@@ -32,10 +34,7 @@ function extractProducts(text: string): Product[] {
         images: [],
       };
     } else if (currentProduct) {
-      // Expresión regular mejorada para evitar capturar caracteres no deseados al final
-      const urls = Array.from(
-        line.matchAll(/https?:\/\/[^\s),]+?\.(?:jpg|jpeg|png|webp)(?:\?[^\s]*)?/gi)
-      ).map(m => m[0]);
+      const urls = Array.from(line.matchAll(imageRegex)).map((m) => m[0]);
       if (urls.length > 0) {
         currentProduct.images.push(...urls);
       }
@@ -116,12 +115,12 @@ export const ChatbotModal = ({
                 {/* Imágenes sueltas si vienen desde msg.images */}
                 {msg.images && msg.images.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {msg.images.map((img: string | undefined, idx: React.Key | null | undefined) => (
+                    {msg.images.map((img, idx) => (
                       <img
                         key={idx}
                         src={img}
                         alt={`product-${idx}`}
-                        className="h-24 object-contain rounded"
+                        className="h-24 w-24 object-cover rounded"
                       />
                     ))}
                   </div>
@@ -136,13 +135,13 @@ export const ChatbotModal = ({
                         className="rounded p-2 shadow transition cursor-pointer bg-gray-200"
                       >
                         <h3 className="font-semibold mb-2">{product.name}</h3>
-                        <div className="flex gap-2 flex-wrap">
+                        <div className="grid grid-cols-2 gap-2">
                           {product.images.map((img, idx) => (
                             <img
                               key={idx}
                               src={img}
                               alt={product.name}
-                              className="h-24 object-contain rounded"
+                              className="w-full h-24 object-cover rounded"
                             />
                           ))}
                         </div>

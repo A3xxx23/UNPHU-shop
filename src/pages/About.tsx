@@ -133,9 +133,9 @@ export const About = () => {
         <div className="grid-container bg-black rounded-lg shadow-lg p-2 flex-grow">
           <div className="rounded-3xl w-full sm:h-[250px] h-fit flex justify-center items-center mb-4">
             <img
-              src="/logoRemove.png"
+              src="/images/UnphuShop.png"
               alt="Logo"
-              className="max-w-[150px] max-h-[150px] object-contain"
+              className="max-w-[500px] max-h-[500px] object-contain"
             />
           </div>
           <div className="mt-6 text-center flex-grow">
@@ -166,7 +166,7 @@ export const About = () => {
             🚀 Tecnologías detrás del proyecto
           </p>
           <p className="grid-subtext text-gray-100 lg:text-lg text-center mb-4 sm:text-md pt-1">
-            A&N Ecommerce se basa en una tecnología moderna y escalable, lo que
+            UNPHU Shop se basa en una tecnología moderna y escalable, lo que
             garantiza una experiencia de compra fluida. Utilizamos herramientas
             y plataformas potentes para crear una plataforma rápida, segura e
             intuitiva para nuestros usuarios.

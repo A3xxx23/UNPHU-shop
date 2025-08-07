@@ -84,7 +84,7 @@ export const CardProducts = ({
           <button
             onClick={handleAddClick}
             className="bg-black border-slate-200 text-white absolute w-full bottom-0 py-3 rounded-3xl flex items-center justify-center gap-1
-                    text-sm font-medium hover:bg-stone-400 translate-y-[100%] transition-all duration-300 group-hover:translate-y-0"
+                    text-sm font-medium hover:bg-green-700 translate-y-[100%] transition-all duration-300 group-hover:translate-y-0"
           >
             <IconPlus />
             Agregar al carrito

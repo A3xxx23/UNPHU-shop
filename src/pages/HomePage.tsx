@@ -14,7 +14,10 @@ export const HomePage = () => {
 
     return (
         <div>
-            <Services/>
+            <div className='mt-20'>
+                <Services/>
+            </div>
+            
 
             {
                 isLoading ? (
@@ -42,8 +45,6 @@ export const HomePage = () => {
                 )
             }
 
-            
-  
         </div>
     )
 }

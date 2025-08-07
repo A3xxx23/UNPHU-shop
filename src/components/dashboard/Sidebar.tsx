@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { dashboardLinks } from "../../constants/links";
 import { IconLogout2 } from "@tabler/icons-react";
 import { signOut } from "../../actions";
-import { LogoRemove } from "../shared/logoRemove";
+import LogoSideBar from "../shared/LogoSideBar";
 
 export const Sidebar = () => {
 
@@ -15,7 +15,7 @@ export const Sidebar = () => {
 
   return (
     <div className="w-[120px] bg-[#388336] text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[250px]">
-      <LogoRemove />
+      <LogoSideBar />
 
       <nav className="w-full space-y-5 flex-1">
         {dashboardLinks.map((link) => (

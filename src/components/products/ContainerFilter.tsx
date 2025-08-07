@@ -4,7 +4,7 @@ const availableBrands = [
     "Nike",
     "Chrome Hearts",
     "Eric Emanuel",
-    "Essentials",
+    "Taza",
     "Gallery Dept",
     "New Balance",
     "Rhude",
@@ -14,6 +14,8 @@ const availableBrands = [
     "Hellstar",
     "Anti Social Club",
     "Maison Mihara Yasuhiro",
+    "Abrigo",
+    "Case",
 ]
 
 interface Props{

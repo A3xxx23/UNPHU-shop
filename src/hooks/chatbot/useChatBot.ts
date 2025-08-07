@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export type Message = {
-  images: any;
+  images: string;
   id: number;
   text: string;
   sender: "user" | "bot";

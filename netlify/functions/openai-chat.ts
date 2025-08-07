@@ -22,7 +22,7 @@ export const handler: Handler = async (event) => {
       const { data: products, error } = await supabase
         .from('products')
         .select('name, description, brand, images')
-        .limit(5);
+        .limit(10);
 
       if (error) {
         console.error('Error consultando productos:', error);
