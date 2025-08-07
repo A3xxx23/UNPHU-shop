@@ -1,5 +1,5 @@
-import { Customer } from '../../../interfaces';
-import { formatDateLong } from '../../../helpers';
+import type { Customer } from '../../../interfaces';
+import { formatDateLong, formatDateLongFromDate } from '../../../helpers';
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { IconDownload } from '@tabler/icons-react';
@@ -15,7 +15,7 @@ export const TableCustomersAdmin = ({ customers }: Props) => {
 
   const handlePrint = useReactToPrint({
     contentRef: printRef,
-    documentTitle: `Listado de clientes - ${formatDateLong(new Date())}`,
+    documentTitle: `Listado de clientes - ${formatDateLongFromDate(new Date())}`,
   });
 
   return (

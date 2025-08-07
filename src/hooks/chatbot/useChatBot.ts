@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export type Message = {
-  images: string;
+  images: string[]; 
   id: number;
   text: string;
   sender: "user" | "bot";
@@ -24,12 +24,11 @@ export function useChatbot() {
     const userMessage = input.trim();
 
     // Agrega el mensaje del usuario
-    const newMessage = { id: Date.now(), text: userMessage, sender: "user" };
+    const newMessage = { id: Date.now(), text: userMessage, sender: "user", images: [] };
     setMessages(prev => [...prev, newMessage]);
     setInput("");
 
     try {
-      // Llamada a la función serverless
       const res = await fetch('/.netlify/functions/openai-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -42,6 +41,7 @@ export function useChatbot() {
         id: Date.now() + 1,
         text: data.reply || "Lo siento, no pude procesar tu mensaje.",
         sender: "bot",
+        images: data.images || [], // Asegúrate de que aquí se manejen las imágenes correctamente
       };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
@@ -49,6 +49,7 @@ export function useChatbot() {
         id: Date.now() + 1,
         text: "Error al contactar al servidor. Intenta de nuevo.",
         sender: "bot",
+        images: [], // Asegúrate de que aquí se manejen las imágenes correctamente
       };
       setMessages(prev => [...prev, errorMsg]);
       console.error(error);
@@ -75,4 +76,3 @@ export function useChatbot() {
     messagesEndRef,
   };
 }
-

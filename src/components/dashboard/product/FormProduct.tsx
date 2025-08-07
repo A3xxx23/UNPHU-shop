@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { ProductFormValues, productSchema } from '../../../lib/validators';
+import { type ProductFormValues, productSchema } from '../../../lib/validators';
 import { IconArrowBack } from '@tabler/icons-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { SectionFormProducts } from './SectionFormProducts';
@@ -13,7 +13,7 @@ import { UploaderImages } from './UploaderImages';
 import { Editor } from './Editor';
 import { useCreateProduct, useProduct, useUpdateProduct } from '../../../hooks';
 import { Loader } from '../../shared/Loader';
-import { JSONContent } from '@tiptap/react';
+import type { JSONContent } from '@tiptap/react';
 
 interface Props {
 	titleForm: string;

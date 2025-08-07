@@ -1,8 +1,8 @@
-import { EditorContent, JSONContent, useEditor, type Editor as EditorType } from "@tiptap/react"
-import { ProductFormValues } from "../../../lib/validators"
-import { FieldErrors, UseFormSetValue } from "react-hook-form"
+import { EditorContent, type JSONContent, useEditor, type Editor as EditorType } from "@tiptap/react"
+import type { ProductFormValues } from "../../../lib/validators";
+import type { FieldErrors, UseFormSetValue } from "react-hook-form";
 import StarterKit from "@tiptap/starter-kit";
-import { ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect } from "react";
 
 interface Props {
     setValue: UseFormSetValue<ProductFormValues>;

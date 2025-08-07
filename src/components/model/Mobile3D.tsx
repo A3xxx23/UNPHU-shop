@@ -5,8 +5,11 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/iphone-16-pro-black-titanium-1e045d5df9f84984868ce70cb3ef1f45
 */
 import { Html, useGLTF } from '@react-three/drei';
+import type { JSX } from 'react';
 
-export function Model(props) {
+type ModelProps = JSX.IntrinsicElements['group'];
+
+export function Angel(props: ModelProps) {
   const { nodes, materials } = useGLTF('/model/iphone_16_pro_black_titanium.glb');
 
   return (
@@ -626,6 +629,6 @@ export function Model(props) {
   );
 }
 
-export default Model;
+export default Angel;
 
 useGLTF.preload('/model/iphone_16_pro_black_titanium.glb');

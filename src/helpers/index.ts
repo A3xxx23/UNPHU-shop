@@ -1,4 +1,4 @@
-import { Color, Product, variantProduct } from "../interfaces";
+import type { Color, Product, variantProduct } from "../interfaces";
 
 //Funcion para el precio en dolar
 
@@ -61,6 +61,17 @@ export const formatDateLong = (date: string): string => {
 
     return dateObject.toLocaleDateString('es-ES', {
         year:'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+};
+
+// Funcion para formatear fecha a 5 de abril 2025 para otros componentes
+
+// helpers.ts
+export const formatDateLongFromDate = (date: Date): string => {
+    return date.toLocaleDateString('es-ES', {
+        year: 'numeric',
         month: 'long',
         day: 'numeric',
     });

@@ -1,5 +1,5 @@
-import { Control, FieldErrors, useFieldArray, UseFormRegister, useWatch } from 'react-hook-form';
-import { ProductFormValues } from '../../../lib/validators';
+import { type Control, type FieldErrors, useFieldArray, type UseFormRegister, useWatch } from 'react-hook-form';
+import type { ProductFormValues } from '../../../lib/validators';
 import { IconCircleDashedX, IconCirclePlus } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 
